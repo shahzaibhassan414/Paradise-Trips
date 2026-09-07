@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Outer Navy Circle -->
+  <circle cx="32" cy="32" r="30" fill="#182c4f" stroke="#ffffff" stroke-width="2" />
+  <circle cx="32" cy="32" r="20" fill="#5eaeb8" stroke="#ffffff" stroke-width="1.5" />
+  
+  <!-- Sand -->
+  <path d="M 12 36 Q 32 35 52 36 A 20 20 0 0 1 32 52 A 20 20 0 0 1 12 36 Z" fill="#f19e53" />
+  
+  <!-- Sun -->
+  <circle cx="32" cy="22" r="3.5" fill="#fce4b3" />
+  
+  <!-- Palm Trees -->
+  <path d="M 23 42 Q 25 33 22 26" stroke="#12383d" stroke-width="1.8" fill="none" stroke-linecap="round" />
+  <path d="M 22 26 Q 16 23 15 28" stroke="#12383d" stroke-width="1.2" fill="none" />
+  <path d="M 22 26 Q 26 23 27 28" stroke="#12383d" stroke-width="1.2" fill="none" />
+  
+  <path d="M 41 42 Q 39 33 42 26" stroke="#12383d" stroke-width="1.8" fill="none" stroke-linecap="round" />
+  <path d="M 42 26 Q 48 23 49 28" stroke="#12383d" stroke-width="1.2" fill="none" />
+  <path d="M 42 26 Q 38 23 37 28" stroke="#12383d" stroke-width="1.2" fill="none" />
+
+  <!-- Hammock -->
+  <path d="M 23 31 Q 32 37 41 31" stroke="#ffffff" stroke-width="1" fill="none" />
+</svg>

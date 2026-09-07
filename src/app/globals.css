@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ==========================================================================
+       🎨 CENTRAL COLOR PALETTE (EDIT HERE OR IN src/theme.config.ts)
+       ========================================================================== */
+    
+    /* 1. Primary Action & Interactive (Mountain Teal / Aqua from Logo) */
+    --brand-primary: #0f766e;
+    --brand-primary-hover: #115e59;
+    --brand-primary-light: #f0fdfa;
+    --brand-primary-dark: #134e4a;
+    --brand-primary-to: #0284c7;
+
+    /* 2. Accent & Highlight (Sunrise Orange / Gold from Logo) */
+    --brand-accent: #ff9f49;
+    --brand-accent-hover: #f97316;
+    --brand-accent-light: #fff7ed;
+    --brand-accent-dark: #9a3412;
+    --brand-accent-to: #f59e0b;
+
+    /* 3. Dark Foundations (Midnight Navy from Logo Badge) */
+    --brand-dark: #0b1224;
+    --brand-dark-surface: #17244e;
+    --brand-dark-border: #263868;
+    --brand-dark-text: #f8fafc;
+    --brand-dark-muted: #94a3b8;
+
+    /* 4. Light Foundations */
+    --brand-bg: #f8fafc;
+    --brand-card: #ffffff;
+    --brand-border: #e2e8f0;
+    --brand-text: #0f172a;
+    --brand-muted: #64748b;
+
+    /* System Mappings */
+    --background: var(--brand-bg);
+    --foreground: var(--brand-text);
+    --card: var(--brand-card);
+    --card-foreground: var(--brand-text);
+    --popover: var(--brand-card);
+    --popover-foreground: var(--brand-text);
+    --primary: var(--brand-primary);
+    --primary-foreground: #ffffff;
+    --secondary: var(--brand-primary-light);
+    --secondary-foreground: var(--brand-primary-dark);
+    --muted: #f1f5f9;
+    --muted-foreground: var(--brand-muted);
+    --accent: var(--brand-accent);
+    --accent-foreground: #ffffff;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: var(--brand-border);
+    --input: var(--brand-border);
+    --ring: var(--brand-primary);
+    --radius: 0.875rem;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-jakarta), var(--font-outfit), sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+  }
+
+  /* Prevent iOS Safari automatic viewport zooming on focus */
+  @media (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), var(--font-jakarta), sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer utilities {
+  /* Centralized Brand Helper Classes */
+  .btn-brand-primary {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-to) 100%);
+    color: #ffffff;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-brand-primary:hover {
+    opacity: 0.94;
+    transform: scale(0.99);
+  }
+
+  .btn-brand-dark {
+    background: var(--brand-dark-surface);
+    color: #ffffff;
+    border: 1px solid var(--brand-dark-border);
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-brand-dark:hover {
+    background: var(--brand-dark-border);
+  }
+
+  .badge-brand-accent {
+    background: linear-gradient(135deg, var(--brand-accent) 0%, var(--brand-accent-to) 100%);
+    color: #0f172a;
+    font-weight: 900;
+  }
+
+  .pill-brand-tag {
+    background: var(--brand-primary-light);
+    color: var(--brand-primary-dark);
+    border: 1px solid color-mix(in srgb, var(--brand-primary) 20%, transparent);
+  }
+
+  .text-brand-primary {
+    color: var(--brand-primary);
+  }
+
+  .text-brand-accent {
+    color: var(--brand-accent);
+  }
+
+  .bg-brand-primary {
+    background-color: var(--brand-primary);
+  }
+
+  .bg-brand-accent {
+    background-color: var(--brand-accent);
+  }
+
+  .border-brand-primary {
+    border-color: var(--brand-primary);
+  }
+
+  .glow-brand-primary {
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--brand-primary) 35%, transparent);
+  }
+
+  .glow-brand-accent {
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--brand-accent) 35%, transparent);
+  }
+
+  .glass {
+    @apply bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-md;
+  }
+  
+  .glass-dark {
+    @apply bg-slate-900/90 backdrop-blur-md border border-slate-800 shadow-2xl;
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 3px 14px rgba(0,0,0,0.7);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
