@@ -16,9 +16,9 @@ import {
 } from "lucide-react";
 
 export default function CraftYourTourPage() {
-  const [selectedDestinations, setSelectedDestinations] = useState<string[]>(["Hunza Valley & Passu"]);
+  const [selectedDestinations, setSelectedDestinations] = useState<string[]>(["Hunza Valley & Passu Cones"]);
   const [tripDuration, setTripDuration] = useState<number>(5);
-  const [travelStyle, setTravelStyle] = useState<"standard" | "deluxe" | "luxuryByAir">("deluxe");
+  const [travelStyle, setTravelStyle] = useState<"standard" | "deluxe" | "luxury">("deluxe");
   const [vehicle, setVehicle] = useState<string>("Toyota Grand Cabin VIP (10-12 Pax)");
   const [travelersCount, setTravelersCount] = useState<number>(6);
   const [tripType, setTripType] = useState<string>("Family Vacation");
@@ -30,14 +30,12 @@ export default function CraftYourTourPage() {
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const destinationOptions = [
-    { name: "Hunza Valley & Passu", icon: "🏔️" },
-    { name: "Skardu & Deosai", icon: "🌊" },
-    { name: "Fairy Meadows & Nanga Parbat", icon: "🏕️" },
-    { name: "Kumrat Valley", icon: "🌲" },
-    { name: "Swat & Malam Jabba", icon: "⛷️" },
-    { name: "Naran & Saif-ul-Malook", icon: "🛶" },
-    { name: "Neelum Valley, Kashmir", icon: "🍃" },
-    { name: "Gwadar & Ormara Beach", icon: "🏖️" },
+    { name: "Hunza Valley & Passu Cones", icon: "🏔️" },
+    { name: "Skardu, Shangrila & Deosai", icon: "🌊" },
+    { name: "Kumrat Valley & Katora Lake", icon: "🌲" },
+    { name: "Swat Valley & Malam Jabba", icon: "⛷️" },
+    { name: "Naran, Kaghan & Siri Paye", icon: "🛶" },
+    { name: "Azad Kashmir & Neelum Valley", icon: "🍃" },
   ];
 
   const toggleDestination = (name: string) => {
@@ -51,9 +49,9 @@ export default function CraftYourTourPage() {
   };
 
   const hotelTierLabels = {
-    standard: "Executive (3-Star Deluxe)",
-    deluxe: "Imperial (4-Star Heritage)",
-    luxuryByAir: "Royal Luxury (5-Star / By Air)",
+    standard: "Standard (3-Star Comfortable)",
+    deluxe: "Deluxe (4-Star Premium)",
+    luxury: "Luxury (5-Star / Heritage Resorts)",
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -183,9 +181,9 @@ Please provide a custom tailored itinerary and detailed quotation!`;
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { key: "standard", label: "Executive", desc: "3-Star Deluxe" },
-                  { key: "deluxe", label: "Imperial", desc: "4-Star Heritage" },
-                  { key: "luxuryByAir", label: "Luxury", desc: "5-Star Resorts" },
+                  { key: "standard", label: "Standard", desc: "3-Star Deluxe" },
+                  { key: "deluxe", label: "Deluxe", desc: "4-Star Premium" },
+                  { key: "luxury", label: "Luxury", desc: "5-Star Resorts" },
                 ].map((tier) => (
                   <button
                     key={tier.key}
@@ -211,14 +209,15 @@ Please provide a custom tailored itinerary and detailed quotation!`;
               <select
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value)}
-                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-[var(--brand-primary)]/20 text-base sm:text-sm font-semibold text-slate-800 bg-white"
+                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-[var(--brand-primary)]/20 text-base sm:text-sm font-semibold text-slate-800 bg-white cursor-pointer"
               >
+                <option value="Honda Civic (3-4 Pax)">Honda Civic (3-4 Pax)</option>
+                <option value="Toyota Corolla GLi / Altis (3-4 Pax)">Toyota Corolla GLi / Altis (3-4 Pax)</option>
                 <option value="Toyota Prado 4x4 TX/TZ (4-5 Pax)">Toyota Prado 4x4 TX/TZ (4-5 Pax)</option>
                 <option value="Toyota Land Cruiser V8 (3-4 Pax)">Toyota Land Cruiser V8 (3-4 Pax)</option>
                 <option value="Toyota Grand Cabin VIP (10-12 Pax)">Toyota Grand Cabin VIP (10-12 Pax)</option>
                 <option value="Toyota Hiace Executive (6-8 Pax)">Toyota Hiace Executive (6-8 Pax)</option>
                 <option value="Luxury Saloon Coaster (20+ Pax)">Luxury Saloon Coaster (20+ Pax)</option>
-                <option value="By-Air Scheduled Flights + Local Prado">By-Air Flights + Local 4x4 Prado</option>
               </select>
             </div>
           </div>
@@ -249,11 +248,12 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                 onChange={(e) => setDepartureCity(e.target.value)}
                 className="w-full px-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-brand-primary text-base sm:text-sm font-medium bg-white"
               >
-                <option value="Lahore">Lahore (LHE)</option>
-                <option value="Islamabad">Islamabad (ISB)</option>
-                <option value="Karachi">Karachi (KHI)</option>
-                <option value="Peshawar">Peshawar (PEW)</option>
-                <option value="Multan">Multan (MUX)</option>
+                <option value="Multan">Multan</option>
+                <option value="Sahiwal">Sahiwal</option>
+                <option value="Faisalabad">Faisalabad</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Gujranwala">Gujranwala</option>
+                <option value="Rawalpindi/Islamabad">Rawalpindi / Islamabad</option>
                 <option value="Custom Pickup">Custom Location Pickup</option>
               </select>
             </div>

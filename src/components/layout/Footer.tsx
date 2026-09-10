@@ -39,10 +39,10 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white tracking-tight leading-none">
-                  Paradise <span className="text-brand-accent">Trips</span>
+                  Paradise <span className="text-brand-accent">Trips &amp; Tours</span>
                 </span>
                 <span className="text-[10px] uppercase font-semibold tracking-widest text-slate-400 mt-0.5">
-                  Trips &amp; Tours
+                  Curated Pakistan Expeditions
                 </span>
               </div>
             </Link>
@@ -55,6 +55,10 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-primary shrink-0" />
                 <span>Certified mountain guides & experienced 4x4 drivers</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-emerald-300/90 font-medium">Govt. Registered Pvt Ltd • Reg ID: {config.registrationId}</span>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-brand-primary shrink-0" />
@@ -110,11 +114,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/by-air" className="hover:text-brand-primary transition-colors">
-                  By Air Tours
-                </Link>
-              </li>
-              <li>
                 <Link href="/gallery" className="hover:text-brand-primary transition-colors">
                   Moments Gallery
                 </Link>
@@ -131,37 +130,37 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold text-sm mb-4 tracking-wide uppercase flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-primary" />
-              Featured Tours
+              Featured Expeditions
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
-                <Link href="/packages" className="hover:text-brand-primary flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">Fairy Meadows & Nanga Parbat</span>
-                  <span className="text-xs text-slate-500">5 Days</span>
+                <Link href="/packages/8-days-skardu-shangrila-hunza-deosai-cocktail" className="hover:text-brand-primary flex items-center justify-between group">
+                  <span className="group-hover:translate-x-0.5 transition-transform">Skardu & Hunza Cocktail</span>
+                  <span className="text-xs text-slate-500">8 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-brand-primary flex items-center justify-between group">
+                <Link href="/packages/5-days-hunza-passu-cones-khunjerab-pass" className="hover:text-brand-primary flex items-center justify-between group">
                   <span className="group-hover:translate-x-0.5 transition-transform">Hunza Valley & Passu Cones</span>
                   <span className="text-xs text-slate-500">5 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-brand-primary flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">Skardu, Deosai & Lakes</span>
-                  <span className="text-xs text-slate-500">6 Days</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/packages" className="hover:text-brand-primary flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform">Kumrat Valley & Katora Lake</span>
+                <Link href="/packages/4-days-kumrat-valley-katora-lake-trek" className="hover:text-brand-primary flex items-center justify-between group">
+                  <span className="group-hover:translate-x-0.5 transition-transform">Kumrat & Katora Lake Trek</span>
                   <span className="text-xs text-slate-500">4 Days</span>
                 </Link>
               </li>
               <li>
-                <Link href="/by-air" className="hover:text-brand-primary flex items-center justify-between group">
-                  <span className="group-hover:translate-x-0.5 transition-transform text-brand-primary font-medium">Skardu By Air Tour</span>
-                  <span className="text-xs text-slate-500">7 Days</span>
+                <Link href="/packages/3-days-swat-kalam-malam-jabba" className="hover:text-brand-primary flex items-center justify-between group">
+                  <span className="group-hover:translate-x-0.5 transition-transform">Swat, Kalam & Malam Jabba</span>
+                  <span className="text-xs text-slate-500">3 Days</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/packages/3-days-naran-kaghan-shogran-siri-paye" className="hover:text-brand-primary flex items-center justify-between group">
+                  <span className="group-hover:translate-x-0.5 transition-transform">Naran, Kaghan & Shogran</span>
+                  <span className="text-xs text-slate-500">3 Days</span>
                 </Link>
               </li>
             </ul>
@@ -197,10 +196,26 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-primary mt-0.5 shrink-0" />
                 <div>
-                  <div className="text-[11px] text-slate-500">Lahore Address:</div>
+                  <div className="text-[11px] text-slate-500">Lahore Head Office:</div>
                   <span className="text-slate-300 leading-relaxed text-xs">
                     {config.addresses.lahore}
                   </span>
+                </div>
+              </div>
+
+              {/* 7 Operational Offices */}
+              <div className="pt-1">
+                <div className="text-[10px] text-slate-500 mb-1.5 font-bold uppercase tracking-wider">
+                  7 Nationwide Operational Offices:
+                </div>
+                <div className="flex flex-wrap gap-1 text-[10px] text-slate-300">
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-brand-accent font-semibold">Lahore (HQ)</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Multan</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Haroonabad</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Chishtian</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Gujranwala</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Sialkot</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Rawalpindi</span>
                 </div>
               </div>
 
@@ -221,8 +236,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex items-center gap-1 text-center sm:text-left">
-            <span>© {new Date().getFullYear()} {config.businessName}. All rights reserved.</span>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center sm:text-left">
+            <span>© {new Date().getFullYear()} {config.businessName} (Pvt) Ltd. All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <span className="text-slate-400 font-medium">Reg ID: {config.registrationId}</span>
           </div>
 
           <div className="flex items-center gap-6">

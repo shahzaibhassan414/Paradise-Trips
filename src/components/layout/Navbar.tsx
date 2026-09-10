@@ -45,17 +45,19 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "Tours & Packages", href: "/packages" },
     { name: "Craft Tour", href: "/craft-your-tour" },
-    { name: "By Air", href: "/by-air" },
     { name: "Moments", href: "/gallery" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 
+  const isHomePage = pathname === "/";
+  const isSolid = isScrolled || !isHomePage;
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top micro-bar */}
       <div className={`hidden lg:block transition-all duration-200 text-xs ${
-        isScrolled 
+        isSolid 
           ? "bg-slate-900 text-slate-300 py-1.5 border-b border-slate-800" 
           : "bg-slate-950/80 backdrop-blur-md text-slate-200 py-2 border-b border-white/10"
       }`}>
@@ -75,7 +77,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <span className="text-slate-300 font-medium text-xs flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-brand-accent" />
-              <span>Weekly Departures Every Thursday & Friday</span>
+              <span>Weekly Departures Every Thursday &amp; Friday</span>
             </span>
             <span className="text-slate-600">|</span>
             <Link 
@@ -92,7 +94,7 @@ export default function Navbar() {
 
       {/* Main Nav */}
       <div className={`transition-all duration-300 ${
-        isScrolled 
+        isSolid 
           ? "bg-white/95 backdrop-blur-md shadow-sm py-2.5 sm:py-3 text-slate-900 border-b border-slate-200/80" 
           : "bg-gradient-to-b from-slate-950/85 via-slate-950/50 to-transparent py-3 sm:py-4 text-white"
       }`}>
@@ -110,14 +112,14 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className={`text-base sm:text-xl font-extrabold tracking-tight leading-none ${
-                isScrolled ? "text-slate-900" : "text-white"
+                isSolid ? "text-slate-900" : "text-white"
               }`}>
-                Paradise <span className={isScrolled ? "text-brand-primary" : "text-brand-accent"}>Trips</span>
+                Paradise <span className={isSolid ? "text-brand-primary" : "text-brand-accent"}>Trips &amp; Tours</span>
               </span>
               <span className={`text-[9px] sm:text-[10px] tracking-wider uppercase font-semibold mt-0.5 ${
-                isScrolled ? "text-slate-500" : "text-slate-300"
+                isSolid ? "text-slate-500" : "text-slate-300"
               }`}>
-                Trips &amp; Tours
+                Curated Pakistan Expeditions
               </span>
             </div>
           </Link>
@@ -132,10 +134,10 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors relative ${
                     isActive
-                      ? isScrolled
+                      ? isSolid
                         ? "text-[var(--brand-primary-dark)] font-bold bg-[var(--brand-primary-light)]"
                         : "text-white font-bold bg-white/15"
-                      : isScrolled
+                      : isSolid
                       ? "text-slate-600 hover:text-brand-primary hover:bg-slate-100/70"
                       : "text-slate-200 hover:text-white hover:bg-white/10"
                   }`}
@@ -151,7 +153,7 @@ export default function Navbar() {
             <Link
               href="/craft-your-tour"
               className={`text-xs font-semibold px-4 py-2 rounded-lg border transition-all whitespace-nowrap ${
-                isScrolled 
+                isSolid 
                   ? "border-slate-300 text-slate-700 hover:border-brand-primary hover:text-brand-primary hover:bg-[var(--brand-primary-light)]" 
                   : "border-white/40 text-white hover:bg-white/15 hover:border-white"
               }`}
@@ -174,7 +176,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(true)}
               className={`p-2.5 rounded-xl transition-all flex items-center justify-center active:scale-95 min-w-[44px] min-h-[44px] ${
-                isScrolled 
+                isSolid 
                   ? "text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200" 
                   : "text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md"
               }`}
@@ -198,7 +200,7 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-base font-extrabold text-white leading-none">
-                    Paradise <span className="text-brand-accent">Trips</span>
+                    Paradise <span className="text-brand-accent">Trips &amp; Tours</span>
                   </span>
                   <span className="text-[9px] uppercase font-semibold text-slate-400 mt-0.5">
                     Central Park Lahore

@@ -22,7 +22,7 @@ export default function AboutPage() {
             We Are {config.businessName}
           </h1>
           <p className="text-slate-300 text-xs sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            Redefining luxury mountain exploration across Pakistan. We curate royal road expeditions, executive family chalets, and bespoke by-air charters with unrivaled attention to detail.
+            Redefining northern mountain exploration across Pakistan. We curate royal road expeditions, executive family chalets, and bespoke private tours with unrivaled attention to detail.
           </p>
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md bg-slate-900 border border-slate-200">
             <Image
-              src="/images/fairy_meadows.jpg"
+              src="/images/real_passu_hunza.jpg"
               alt="Our Story in Pakistan"
               fill
               className="object-cover"
@@ -46,14 +46,19 @@ export default function AboutPage() {
           </div>
 
           <div className="space-y-4 sm:space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Govt. Registered Pvt Ltd • Reg ID: {config.registrationId}</span>
+            </div>
+
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Discover Your Paradise Across Pakistan
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Paradise Trips &amp; Tours was established to elevate northern tourism in Pakistan from crowded bus trips to refined, executive-class experiences. We believe travel should be soul-stirring, seamless, and steeped in genuine hospitality.
+              Paradise Trips &amp; Tours was established to elevate northern tourism in Pakistan from crowded trips to refined, executive-class experiences. We believe travel should be soul-stirring, seamless, and steeped in genuine hospitality.
             </p>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Whether trekking to the pristine reflection pool of Nanga Parbat, flying directly over K2 into Shangrila Resort, or relaxing by roaring campfire BBQ feasts, every journey is meticulously planned by seasoned mountain professionals.
+              Whether embarking on 4x4 safaris to Deosai Plains, cruising across turquoise Attabad Lake in Hunza, or relaxing by roaring campfire BBQ feasts in Swat and Kumrat, every journey is meticulously planned by seasoned mountain professionals.
             </p>
 
             <div className="pt-3 flex flex-wrap gap-4">

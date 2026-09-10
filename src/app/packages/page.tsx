@@ -58,25 +58,34 @@ function PackagesContent() {
             All Upcoming Royal Expeditions
           </h1>
           <p className="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Browse our scheduled group departures, weekend getaways, and luxury by-air expeditions across Pakistan.
+            Browse our scheduled group road departures, weekend getaways, and alpine trekking expeditions across Pakistan.
           </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Controls & Filter Bar */}
-        <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200/90 mb-8 space-y-4">
+        <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200/90 mb-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
             {/* Live Search Input */}
             <div className="md:col-span-5 relative">
               <input
                 type="text"
-                placeholder="Search by expedition, valley, or activity..."
+                placeholder="Search by tour title, valley, or landmark..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-[var(--brand-primary)]/20 text-base sm:text-sm font-medium text-slate-800"
+                className="w-full pl-10 pr-9 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-[var(--brand-primary)]/20 text-base sm:text-sm font-medium text-slate-800"
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 sm:top-3" />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-3.5 sm:top-3 text-slate-400 hover:text-slate-600 text-xs font-bold w-4 h-4 rounded-full bg-slate-200 flex items-center justify-center"
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              )}
             </div>
 
             {/* Destination Dropdown */}
@@ -88,12 +97,13 @@ function PackagesContent() {
                 className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-brand-primary text-base sm:text-sm font-semibold text-slate-800 cursor-pointer"
               >
                 <option value="">All Mountain Destinations</option>
-                <option value="Fairy Meadows">Fairy Meadows & Nanga Parbat</option>
-                <option value="Hunza">Hunza Valley & Passu</option>
-                <option value="Skardu">Skardu & Deosai Plains</option>
-                <option value="Kumrat">Kumrat Valley</option>
-                <option value="Swat">Swat & Malam Jabba</option>
-                <option value="Sharan">Sharan Forest</option>
+                <option value="Skardu">Skardu, Shangrila &amp; Deosai</option>
+                <option value="Hunza">Hunza Valley &amp; Passu Cones</option>
+                <option value="Fairy Meadows">Fairy Meadows &amp; Nanga Parbat</option>
+                <option value="Swat">Swat Valley &amp; Malam Jabba</option>
+                <option value="Naran">Naran, Kaghan &amp; Shogran</option>
+                <option value="Kashmir">Azad Kashmir &amp; Neelum Valley</option>
+                <option value="Kumrat">Kumrat Valley &amp; Katora Lake</option>
               </select>
             </div>
 
@@ -106,8 +116,8 @@ function PackagesContent() {
                 className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-brand-primary text-base sm:text-sm font-semibold text-slate-800 cursor-pointer"
               >
                 <option value="featured">Sort: Featured First</option>
-                <option value="duration-desc">Duration: Longest First</option>
-                <option value="duration-asc">Duration: Shortest First</option>
+                <option value="duration-desc">Duration: Longest (8-4 Days)</option>
+                <option value="duration-asc">Duration: Shortest (3-5 Days)</option>
               </select>
             </div>
           </div>
@@ -115,31 +125,61 @@ function PackagesContent() {
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pt-3 border-t border-slate-100 hide-scrollbar py-1">
             {[
-              { id: "all", label: "All Tours" },
-              { id: "group", label: "Group Tours" },
-              { id: "weekend", label: "Weekend Escapes" },
-              { id: "by-air", label: "By Air Luxury" },
+              { id: "all", label: "All Tours", count: config.tours.length },
+              { id: "group", label: "Group Expeditions", count: config.tours.filter(t => t.category === "group").length },
+              { id: "weekend", label: "Weekend Escapes", count: config.tours.filter(t => t.category === "weekend").length },
+              { id: "trekking", label: "Alpine Treks", count: config.tours.filter(t => t.category === "trekking").length },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setSelectedCategory(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all whitespace-nowrap shrink-0 active:scale-95 ${
+                className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 active:scale-95 ${
                   selectedCategory === tab.id
                     ? "bg-[var(--brand-primary)] text-white shadow-sm"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
-                {tab.label}
+                <span>{tab.label}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                  selectedCategory === tab.id
+                    ? "bg-white/20 text-white"
+                    : "bg-white text-slate-600 border border-slate-200"
+                }`}>
+                  {tab.count}
+                </span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Tours Count & Grid */}
-        <div className="mb-6 flex items-center justify-between">
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-            Showing <strong className="text-slate-900">{sortedTours.length}</strong> adventurous journeys
-          </span>
+        {/* Active Filters Chips & Count */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              Showing <strong className="text-slate-900">{sortedTours.length}</strong> {sortedTours.length === 1 ? "tour package" : "tour packages"}
+            </span>
+
+            {/* Active filter pills */}
+            {selectedCategory !== "all" && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--brand-primary-light)] text-[var(--brand-primary-dark)] text-xs font-bold">
+                <span>Type: {selectedCategory}</span>
+                <button onClick={() => setSelectedCategory("all")} className="hover:opacity-75 font-black">✕</button>
+              </span>
+            )}
+            {selectedDest && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--brand-primary-light)] text-[var(--brand-primary-dark)] text-xs font-bold">
+                <span>Dest: {selectedDest}</span>
+                <button onClick={() => setSelectedDest("")} className="hover:opacity-75 font-black">✕</button>
+              </span>
+            )}
+            {searchQuery && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--brand-primary-light)] text-[var(--brand-primary-dark)] text-xs font-bold">
+                <span>&ldquo;{searchQuery}&rdquo;</span>
+                <button onClick={() => setSearchQuery("")} className="hover:opacity-75 font-black">✕</button>
+              </span>
+            )}
+          </div>
+
           {(searchQuery || selectedDest || selectedCategory !== "all") && (
             <button
               onClick={() => {
@@ -147,9 +187,9 @@ function PackagesContent() {
                 setSelectedDest("");
                 setSelectedCategory("all");
               }}
-              className="text-xs font-bold text-brand-primary hover:underline"
+              className="text-xs font-bold text-brand-primary hover:underline flex items-center gap-1"
             >
-              Reset Filters
+              <span>Reset All Filters</span>
             </button>
           )}
         </div>

@@ -10,6 +10,7 @@ import {
   MessageCircle, 
   Send, 
   CheckCircle,
+  ShieldCheck,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -43,7 +44,7 @@ Please reach out to me!`;
       <div className="bg-slate-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-8 sm:mb-12 border-b border-slate-800">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-2.5 sm:mb-3">
-            Contact <span className="text-brand-accent">Paradise Trips</span>
+            Contact <span className="text-brand-accent">Paradise Trips &amp; Tours</span>
           </h1>
           <p className="text-slate-300 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
             Have inquiries about group departures, luxury VIP seats, bespoke air tours, or corporate retreats? Connect directly with our lead travel directors.
@@ -140,6 +141,24 @@ Please reach out to me!`;
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Legal Entity & SECP Registration */}
+            <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-emerald-500/30 text-slate-800 space-y-2">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
+                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-900">Govt. Registered (Pvt) Ltd</h4>
+                  <p className="text-xs text-emerald-700 font-bold">
+                    Registration ID: {config.registrationId}
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                Officially incorporated as <strong>{config.legalName}</strong> — certified tourism operator in Pakistan.
+              </p>
             </div>
           </div>
 
@@ -245,6 +264,87 @@ Please reach out to me!`;
                 </form>
               )}
             </div>
+          </div>
+        </div>
+
+        {/* Nationwide Operational Offices (7 Branches) */}
+        <div className="mt-14 sm:mt-20 pt-12 border-t border-slate-200">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-brand-primary font-bold uppercase tracking-wider text-xs block mb-1">
+              Nationwide Presence
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Our 7 Operational Offices Across Pakistan
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm mt-2">
+              Visit our head office in Lahore or connect with our regional branches across Multan, Haroonabad, Chishtian, Gujranwala, Sialkot, and Rawalpindi.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            {config.offices.map((office, idx) => (
+              <div
+                key={idx}
+                className={`p-5 rounded-2xl border transition-all hover:shadow-md ${
+                  office.isHeadOffice
+                    ? "bg-slate-900 text-white border-slate-800 shadow-sm col-span-1 sm:col-span-2 lg:col-span-1 xl:col-span-1"
+                    : "bg-white text-slate-800 border-slate-200/90"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span
+                    className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                      office.isHeadOffice
+                        ? "bg-brand-accent text-slate-950 font-extrabold"
+                        : "bg-brand-primary/10 text-brand-primary font-semibold"
+                    }`}
+                  >
+                    {office.type}
+                  </span>
+                  <MapPin
+                    className={`w-4 h-4 ${
+                      office.isHeadOffice ? "text-brand-accent" : "text-slate-400"
+                    }`}
+                  />
+                </div>
+
+                <h3
+                  className={`font-extrabold text-base mb-1 ${
+                    office.isHeadOffice ? "text-white" : "text-slate-900"
+                  }`}
+                >
+                  {office.city}
+                </h3>
+                <p
+                  className={`text-xs mb-4 leading-relaxed ${
+                    office.isHeadOffice ? "text-slate-300" : "text-slate-500"
+                  }`}
+                >
+                  {office.address}
+                </p>
+
+                <div className="pt-3 border-t border-slate-200/40 flex items-center justify-between text-xs">
+                  <span
+                    className={`font-semibold ${
+                      office.isHeadOffice ? "text-slate-300" : "text-slate-600"
+                    }`}
+                  >
+                    {office.phone}
+                  </span>
+                  <Link
+                    href={`https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(
+                      `Hi Paradise Trips & Tours! I would like to inquire about visits/services at your ${office.city} office.`
+                    )}`}
+                    target="_blank"
+                    className={`font-bold hover:underline ${
+                      office.isHeadOffice ? "text-brand-accent" : "text-brand-primary"
+                    }`}
+                  >
+                    Inquire →
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

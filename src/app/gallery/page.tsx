@@ -11,14 +11,18 @@ export default function GalleryPage() {
   const [filter, setFilter] = useState("all");
 
   const galleryItems = [
-    { title: "Nanga Parbat Reflection Pool", location: "Fairy Meadows", image: "/images/fairy_meadows.jpg", category: "mountains" },
-    { title: "Passu Cones Golden Sunset", location: "Hunza Valley", image: "/images/hunza_passu.jpg", category: "lakes" },
-    { title: "Shangrila Chalets on Kachura Lake", location: "Skardu", image: "/images/skardu_valley.jpg", category: "lakes" },
-    { title: "Campfire Jamming Under Galaxy", location: "Sharan Forest", image: "/images/bonfire_camp.jpg", category: "bonfire" },
-    { title: "Malam Jabba Ski Resort & Pines", location: "Swat Valley", image: "/images/travel_package.jpg", category: "mountains" },
-    { title: "Karakoram Highway Road Trip", location: "Passu", image: "/images/travel_hero.jpg", category: "bonfire" },
-    { title: "Kumrat Deodar Pine Forest Trek", location: "Upper Dir", image: "/images/about_fixed_1787743894916.jpg", category: "mountains" },
-    { title: "Fairy Meadows Rustic Wooden Cabins", location: "Raikot", image: "/images/fairy_meadows.jpg", category: "mountains" },
+    { title: "Fairy Meadows & Nanga Parbat Reflection Pool", location: "Fairy Meadows", image: "/images/real_fairy_meadows.jpg", category: "mountains" },
+    { title: "Shangrila Resort & Lower Kachura Lake", location: "Skardu", image: "/images/real_shangrila_skardu.jpg", category: "lakes" },
+    { title: "Passu Cathedral Cones & Hunza Valley", location: "Hunza Valley", image: "/images/real_passu_hunza.jpg", category: "mountains" },
+    { title: "Attabad Lake Turquoise Waters Cruise", location: "Hunza Valley", image: "/images/real_hunza_attabad.jpg", category: "lakes" },
+    { title: "Deosai National Park & Sheosar Lake", location: "Deosai Plains", image: "/images/real_deosai.jpg", category: "lakes" },
+    { title: "Malam Jabba Ski Resort & Pine Ridges", location: "Swat Valley", image: "/images/real_swat_malamjabba.jpg", category: "mountains" },
+    { title: "Lake Saif-ul-Malook & Siri Paye", location: "Naran Kaghan", image: "/images/real_naran_saifulmalook.jpg", category: "lakes" },
+    { title: "Arang Kel Fairytale Wooden Village", location: "Azad Kashmir", image: "/images/real_kashmir_neelum.jpg", category: "mountains" },
+    { title: "Katora Glacial Lake & High Peaks", location: "Kumrat Valley", image: "/images/real_kumrat_katora.jpg", category: "lakes" },
+    { title: "Kumrat Dense Deodar Pine Forest & River", location: "Upper Dir", image: "/images/real_kumrat_forest.jpg", category: "mountains" },
+    { title: "Pak-China Border at Khunjerab Pass (4,693m)", location: "Khunjerab", image: "/images/real_khunjerab.jpg", category: "mountains" },
+    { title: "Babusar Top Alpine Pass (13,700ft)", location: "Kaghan / Chilas", image: "/images/real_babusar.jpg", category: "mountains" },
   ];
 
   const filteredItems = filter === "all" 

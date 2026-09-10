@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { TourPackage, config } from "@/config";
 import { 
   X, 
@@ -10,7 +11,10 @@ import {
   CheckCircle, 
   ShieldCheck, 
   Send, 
-  MessageCircle
+  MessageCircle,
+  Sparkles,
+  Check,
+  ChevronDown
 } from "lucide-react";
 
 interface BookingModalProps {
@@ -136,6 +140,41 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
         ) : (
           /* Interactive Booking Form */
           <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 overscroll-contain">
+            {/* Tour Photo & 6 Highlights Card */}
+            <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 p-3">
+                <div className="sm:col-span-4 relative aspect-[16/10] sm:aspect-auto rounded-xl overflow-hidden min-h-[110px] bg-slate-900">
+                  <Image
+                    src={tour.image}
+                    alt={tour.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 160px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-2 left-2 right-2">
+                    <span className="text-[10px] font-bold text-white bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm border border-slate-700">
+                      {tour.destination}
+                    </span>
+                  </div>
+                </div>
+                <div className="sm:col-span-8 flex flex-col justify-center">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-brand-accent" />
+                    <span>6 Key Highlights Included</span>
+                  </span>
+                  <ul className="grid grid-cols-1 gap-1 text-[11px] text-slate-700">
+                    {tour.highlights.slice(0, 6).map((hl, i) => (
+                      <li key={i} className="flex items-start gap-1 leading-tight">
+                        <Check className="w-3 h-3 text-brand-primary shrink-0 mt-0.5" />
+                        <span className="line-clamp-1">{hl}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             {/* Step 1: Sharing Plan Selector */}
             <div>
               <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-2">
@@ -195,9 +234,15 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                     onChange={(e) => setDepartureCity(e.target.value)}
                     className="w-full pl-9 pr-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-brand-primary text-base sm:text-sm font-semibold text-slate-800 bg-white"
                   >
-                    <option value="Lahore">Lahore (Thokar / Kalma Chowk)</option>
-                    <option value="Islamabad">Islamabad (Daewoo Terminal)</option>
-                    <option value="Custom Location">Custom Pickup (Private Tour)</option>
+                    {(tour.departureCities && tour.departureCities.length > 0
+                      ? tour.departureCities
+                      : ["Multan", "Sahiwal", "Faisalabad", "Lahore", "Gujranwala", "Rawalpindi/Islamabad"]
+                    ).map((city) => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                    <option value="Custom Location">Custom Pickup (Private)</option>
                   </select>
                   <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3.5 sm:top-3 shrink-0" />
                 </div>

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${config.businessName} — ${config.tagline}`,
     description: config.subTagline,
-    images: ["/images/fairy_meadows.jpg"],
+    images: ["/images/real_fairy_meadows.jpg"],
   }
 };
 

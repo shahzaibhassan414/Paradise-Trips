@@ -26,7 +26,7 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
   return (
     <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200/90 hover:border-brand-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full transform hover:-translate-y-1">
       {/* Image Banner */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+      <Link href={`/packages/${tour.slug}`} className="relative aspect-[16/10] overflow-hidden bg-slate-900 block">
         <Image
           src={tour.image}
           alt={tour.title}
@@ -63,14 +63,16 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
             <span className="text-[10px] text-slate-300">({tour.reviewsCount})</span>
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Card Body */}
       <div className="p-5 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors line-clamp-1 mb-1.5">
-            {tour.title}
-          </h3>
+          <Link href={`/packages/${tour.slug}`} className="block">
+            <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors line-clamp-1 mb-1.5">
+              {tour.title}
+            </h3>
+          </Link>
           <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3.5">
             {tour.subtitle}
           </p>
@@ -89,7 +91,7 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
           </div>
 
           {/* Departure Schedule Pill */}
-          <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 mb-4 flex items-center justify-between text-xs">
+          <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 mb-2 flex items-center justify-between text-xs">
             <span className="text-slate-500 flex items-center gap-1.5 font-medium">
               <Calendar className="w-3.5 h-3.5 text-brand-primary" />
               Departs:
@@ -100,27 +102,23 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
           </div>
         </div>
 
-        {/* CTA Footer (No Pricing) */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
-          <div className="text-xs">
-            <div className="font-semibold text-slate-800 flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-brand-primary" />
-              <span>Full Package</span>
-            </div>
-            <div className="text-[11px] text-slate-500">
-              Hotels, Transport &amp; Guide
-            </div>
-          </div>
+        {/* CTA Footer */}
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+          <Link
+            href={`/packages/${tour.slug}`}
+            className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-colors flex items-center gap-1 min-h-[38px]"
+          >
+            <span>View Details</span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+          </Link>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => onBookNow(tour)}
-              className="btn-brand-primary px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-lg text-xs sm:text-sm shadow-sm flex items-center gap-1.5 active:scale-95 min-h-[40px]"
-            >
-              <MessageCircle className="w-3.5 h-3.5 shrink-0" />
-              <span>Inquire &amp; Book</span>
-            </button>
-          </div>
+          <button
+            onClick={() => onBookNow(tour)}
+            className="btn-brand-primary px-4 py-2 rounded-xl text-xs sm:text-xs shadow-sm flex items-center gap-1.5 active:scale-95 min-h-[38px]"
+          >
+            <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+            <span>Inquire &amp; Book</span>
+          </button>
         </div>
       </div>
     </div>

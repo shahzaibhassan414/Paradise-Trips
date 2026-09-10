@@ -44,13 +44,13 @@ export default function HeroSearchFilter() {
                 className="w-full bg-transparent font-bold text-base sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate py-0.5"
               >
                 <option value="">All Mountain Destinations</option>
-                <option value="Fairy Meadows">Fairy Meadows & Nanga Parbat</option>
-                <option value="Hunza">Hunza Valley & Passu</option>
-                <option value="Skardu">Skardu & Deosai</option>
-                <option value="Kumrat">Kumrat Valley & Katora</option>
-                <option value="Swat">Swat & Malam Jabba</option>
-                <option value="Sharan">Sharan Forest</option>
-                <option value="Naran">Naran Kaghan</option>
+                <option value="Fairy Meadows">Fairy Meadows &amp; Nanga Parbat</option>
+                <option value="Skardu">Skardu &amp; Shangrila</option>
+                <option value="Hunza">Hunza &amp; Passu Cones</option>
+                <option value="Swat">Swat Valley &amp; Malam Jabba</option>
+                <option value="Naran">Naran, Kaghan &amp; Shogran</option>
+                <option value="Kashmir">Azad Kashmir &amp; Neelum</option>
+                <option value="Kumrat">Kumrat Valley &amp; Katora</option>
               </select>
             </div>
           </div>
@@ -69,9 +69,9 @@ export default function HeroSearchFilter() {
                 className="w-full bg-transparent font-bold text-base sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate py-0.5"
               >
                 <option value="">All Tour Types</option>
-                <option value="group">Group Tours</option>
-                <option value="by-air">By Air Luxury</option>
-                <option value="weekend">Weekend Trips</option>
+                <option value="group">Group Expeditions</option>
+                <option value="weekend">Weekend Escapes</option>
+                <option value="trekking">Alpine Treks</option>
                 <option value="custom">Custom Private</option>
               </select>
             </div>
@@ -90,10 +90,13 @@ export default function HeroSearchFilter() {
                 aria-label="Select departure city"
                 className="w-full bg-transparent font-bold text-base sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate py-0.5"
               >
+                <option value="Multan">Multan</option>
+                <option value="Sahiwal">Sahiwal</option>
+                <option value="Faisalabad">Faisalabad</option>
                 <option value="Lahore">Lahore</option>
-                <option value="Islamabad">Islamabad</option>
-                <option value="Karachi">Karachi</option>
-                <option value="Custom">Custom City</option>
+                <option value="Gujranwala">Gujranwala</option>
+                <option value="Rawalpindi/Islamabad">Rawalpindi / Islamabad</option>
+                <option value="All Cities">All Departure Cities</option>
               </select>
             </div>
           </div>

@@ -16,7 +16,8 @@ import {
   ArrowRight, 
   CheckCircle2, 
   ChevronDown, 
-  Send
+  Send,
+  ShieldCheck
 } from "lucide-react";
 
 export default function HomePage() {
@@ -28,7 +29,7 @@ export default function HomePage() {
     if (selectedCategoryTab === "all") return true;
     if (selectedCategoryTab === "group") return tour.category === "group";
     if (selectedCategoryTab === "weekend") return tour.category === "weekend";
-    if (selectedCategoryTab === "by-air") return tour.category === "by-air";
+    if (selectedCategoryTab === "trekking") return tour.category === "trekking";
     return true;
   });
 
@@ -39,7 +40,7 @@ export default function HomePage() {
         {/* Cinematic Background Image */}
         <div className="absolute inset-0 z-0 w-full h-full">
           <Image
-            src="/images/hero_mountains_cinematic.jpg"
+            src="/images/real_passu_hunza.jpg"
             alt="Paradise Trips & Tours — Luxury Pakistan Expeditions"
             fill
             priority
@@ -61,7 +62,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-xs sm:text-base lg:text-lg text-slate-300 font-normal max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2">
-            Curated group road trips, executive mountain chalets, and scenic by-air expeditions across Hunza, Skardu & Fairy Meadows. Certified captains, gourmet bonfires, and unrivaled hospitality.
+            Curated group road trips, executive mountain chalets, and scenic northern expeditions across Hunza, Skardu, Kumrat, Swat & Kaghan. Certified captains, gourmet bonfires, and unrivaled hospitality.
           </p>
 
           {/* Dual Action CTAs */}
@@ -131,21 +132,28 @@ export default function HomePage() {
             {/* Filter Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar w-full md:w-auto">
               {[
-                { id: "all", label: "All Tours" },
-                { id: "group", label: "Group Tours" },
-                { id: "weekend", label: "Weekend Escapes" },
-                { id: "by-air", label: "By Air Luxury" },
+                { id: "all", label: "All Tours", count: config.tours.length },
+                { id: "group", label: "Group Expeditions", count: config.tours.filter(t => t.category === "group").length },
+                { id: "weekend", label: "Weekend Escapes", count: config.tours.filter(t => t.category === "weekend").length },
+                { id: "trekking", label: "Alpine Treks", count: config.tours.filter(t => t.category === "trekking").length },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setSelectedCategoryTab(tab.id)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all whitespace-nowrap shrink-0 ${
+                  className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 active:scale-95 ${
                     selectedCategoryTab === tab.id
                       ? "bg-[var(--brand-primary)] text-white shadow-sm"
                       : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300"
                   }`}
                 >
-                  {tab.label}
+                  <span>{tab.label}</span>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                    selectedCategoryTab === tab.id
+                      ? "bg-white/20 text-white"
+                      : "bg-slate-100 text-slate-600"
+                  }`}>
+                    {tab.count}
+                  </span>
                 </button>
               ))}
             </div>
@@ -160,17 +168,6 @@ export default function HomePage() {
                 onBookNow={(t) => setSelectedTourForBooking(t)}
               />
             ))}
-          </div>
-
-          {/* View All CTA */}
-          <div className="text-center mt-12 sm:mt-14">
-            <Link
-              href="/packages"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-slate-900 hover:bg-[var(--brand-primary)] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md transition-all active:scale-95"
-            >
-              <span>View All 15+ Upcoming Expeditions</span>
-              <ArrowRight className="w-4 h-4 text-brand-accent shrink-0" />
-            </Link>
           </div>
         </div>
       </section>
