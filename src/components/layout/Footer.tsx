@@ -18,6 +18,9 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
+  const [selectedOfficeIndex, setSelectedOfficeIndex] = React.useState<number>(0);
+  const activeOffice = config.offices[selectedOfficeIndex] || config.offices[0];
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -193,29 +196,47 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-2.5 min-h-[56px] transition-all">
                 <MapPin className="w-4 h-4 text-brand-primary mt-0.5 shrink-0" />
                 <div>
-                  <div className="text-[11px] text-slate-500">Lahore Head Office:</div>
-                  <span className="text-slate-300 leading-relaxed text-xs">
-                    {config.addresses.lahore}
+                  <div className="text-[11px] text-slate-500 font-medium flex items-center gap-1.5">
+                    <span>{activeOffice.name}:</span>
+                    {activeOffice.isHeadOffice && (
+                      <span className="text-[9px] px-1.5 py-0.2 rounded bg-brand-primary/20 text-brand-accent font-bold">
+                        HQ
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-slate-200 leading-relaxed text-xs block mt-0.5">
+                    {activeOffice.address}
                   </span>
                 </div>
               </div>
 
-              {/* 7 Operational Offices */}
+              {/* 7 Operational Offices Clickable Filter */}
               <div className="pt-1">
-                <div className="text-[10px] text-slate-500 mb-1.5 font-bold uppercase tracking-wider">
-                  7 Nationwide Operational Offices:
+                <div className="text-[10px] text-slate-400 mb-1.5 font-bold uppercase tracking-wider flex items-center justify-between">
+                  <span>Nationwide Offices:</span>
+                  <span className="text-[9px] text-slate-400 font-normal lowercase">(click to view address)</span>
                 </div>
-                <div className="flex flex-wrap gap-1 text-[10px] text-slate-300">
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-brand-accent font-semibold">Lahore (HQ)</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Multan</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Haroonabad</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Chishtian</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Gujranwala</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Sialkot</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800">Rawalpindi</span>
+                <div className="flex flex-wrap gap-1 text-[10px]">
+                  {config.offices.map((off, idx) => {
+                    const isSelected = selectedOfficeIndex === idx;
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setSelectedOfficeIndex(idx)}
+                        className={`px-2 py-1 rounded transition-all text-left cursor-pointer border ${
+                          isSelected
+                            ? "bg-slate-900 text-brand-accent border-brand-accent/80 font-bold shadow-xs ring-1 ring-brand-accent/40"
+                            : "bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white"
+                        }`}
+                      >
+                        {off.city}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 

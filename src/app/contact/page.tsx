@@ -277,7 +277,7 @@ Please reach out to me!`;
               Our 7 Operational Offices Across Pakistan
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-2">
-              Visit our head office in Lahore or connect with our regional branches across Multan, Haroonabad, Chishtian, Gujranwala, Sialkot, and Rawalpindi.
+              Visit our head office in Central Park Lahore or connect with our branches across Garden Town Lahore, Gujranwala, Rawalpindi / Wah Cantt, Sialkot, Haroonabad, and Chishtian.
             </p>
           </div>
 

@@ -91,13 +91,13 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
           </div>
 
           {/* Departure Schedule Pill */}
-          <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 mb-2 flex items-center justify-between text-xs">
-            <span className="text-slate-500 flex items-center gap-1.5 font-medium">
-              <Calendar className="w-3.5 h-3.5 text-brand-primary" />
+          <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 mb-2 flex items-center justify-between text-xs gap-2">
+            <span className="text-slate-500 flex items-center gap-1.5 font-medium shrink-0">
+              <Calendar className="w-3.5 h-3.5 text-brand-primary shrink-0" />
               Departs:
             </span>
-            <span className="font-semibold text-slate-800">
-              {tour.departureSchedule || tour.upcomingDates[0] || "Every Thursday Night"}
+            <span className="font-semibold text-slate-800 text-right">
+              {tour.departureSchedule || tour.upcomingDates[0] || "Every Thursday & Friday"}
             </span>
           </div>
         </div>
