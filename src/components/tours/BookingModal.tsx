@@ -210,18 +210,32 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                 <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                   2. Departure Schedule
                 </label>
-                <div className="relative">
-                  <select
-                    value={selectedDate || tour.upcomingDates[0]}
-                    onChange={(e) => setSelectedDate(e.target.value)}
-                    className="w-full pl-9 pr-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-brand-primary text-base sm:text-sm font-semibold text-slate-800 bg-white"
-                  >
-                    {tour.upcomingDates.map((schedule) => (
-                      <option key={schedule} value={schedule}>{schedule}</option>
-                    ))}
-                  </select>
-                  <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-3.5 sm:top-3 shrink-0" />
-                </div>
+                {tour.upcomingDates && tour.upcomingDates.length <= 1 ? (
+                  <div className="flex items-center justify-between p-2.5 sm:p-2.5 rounded-xl border border-emerald-200 bg-emerald-50/70 text-xs min-h-[46px] sm:min-h-[42px]">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Calendar className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span className="font-bold text-slate-900 text-xs truncate">
+                        {tour.upcomingDates[0] || tour.departureSchedule || "Weekly Fixed Schedule"}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-100/90 px-2 py-0.5 rounded shrink-0 ml-1 border border-emerald-200/60">
+                      Locked
+                    </span>
+                  </div>
+                ) : (
+                  <div className="relative">
+                    <select
+                      value={selectedDate || (tour.upcomingDates ? tour.upcomingDates[0] : "")}
+                      onChange={(e) => setSelectedDate(e.target.value)}
+                      className="w-full pl-9 pr-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-brand-primary text-base sm:text-sm font-semibold text-slate-800 bg-white cursor-pointer"
+                    >
+                      {(tour.upcomingDates || []).map((schedule) => (
+                        <option key={schedule} value={schedule}>{schedule}</option>
+                      ))}
+                    </select>
+                    <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-3.5 sm:top-3 shrink-0 pointer-events-none" />
+                  </div>
+                )}
               </div>
 
               <div>

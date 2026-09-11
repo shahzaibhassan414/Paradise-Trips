@@ -284,12 +284,9 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Weekly Fixed Departures",
+      departureSchedule: "Every Saturday Morning / Friday Night (8 Days)",
       upcomingDates: [
-        "Every Weekend Departure",
-        "Weekly Fixed Departures",
-        "Karachi Connecting Group Dates",
-        "Custom Dates on Request",
+        "Every Saturday (Weekly Fixed Departure)",
       ],
       tags: [
         "Shangrila Resort",
@@ -400,12 +397,10 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday Night",
+      departureSchedule: "Every Thursday Night & Sunday Night (5 Days)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekly Fixed Departures",
-        "Custom Squad Dates on Request",
+        "Every Thursday Night (Weekend Batch)",
+        "Every Sunday Night (Mid-Week Batch)",
       ],
       tags: [
         "Passu Cones",
@@ -500,12 +495,9 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday & Friday Night",
+      departureSchedule: "Every Thursday Night (5 Days Alpine Trek)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekly Fixed Departures",
-        "Custom Trek Dates on Request",
+        "Every Thursday Night (Weekly Fixed Departure)",
       ],
       tags: [
         "Fairy Meadows",
@@ -602,12 +594,10 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday & Friday Night",
+      departureSchedule: "Every Thursday Night & Friday Night (3 Days)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekend Escapes",
-        "Custom Family Dates",
+        "Every Thursday Night (Weekend Express)",
+        "Every Friday Night (Weekend Batch)",
       ],
       tags: [
         "Malam Jabba Ski",
@@ -691,12 +681,10 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday & Friday Night",
+      departureSchedule: "Every Thursday Night & Friday Night (3 Days)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekend Escapes",
-        "Custom Dates on Request",
+        "Every Thursday Night (Weekend Express)",
+        "Every Friday Night (Weekend Batch)",
       ],
       tags: [
         "Lake Saif-ul-Malook",
@@ -780,12 +768,10 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday & Friday Night",
+      departureSchedule: "Every Thursday Night & Friday Night (3 Days)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekly Departures",
-        "Custom Dates on Request",
+        "Every Thursday Night (Weekend Batch)",
+        "Every Friday Night (Weekend Express)",
       ],
       tags: [
         "Neelum Valley",
@@ -870,12 +856,9 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday Night",
+      departureSchedule: "Every Wednesday Night (4 Days Trek)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekly Trek Departures",
-        "Custom Trekking Squads",
+        "Every Wednesday Night (Weekly Fixed Departure)",
       ],
       tags: [
         "Kumrat Valley",
@@ -966,12 +949,9 @@ export const config: SiteConfig = {
         "Gujranwala",
         "Rawalpindi/Islamabad",
       ],
-      departureSchedule: "Every Thursday & Friday Night",
+      departureSchedule: "Every Thursday Night (3 Days Forest Retreat)",
       upcomingDates: [
-        "Every Thursday Night",
-        "Every Friday Night",
-        "Weekend Forest Getaways",
-        "Custom Squad Dates",
+        "Every Thursday Night (Weekly Fixed Departure)",
       ],
       tags: [
         "Kumrat Valley",
